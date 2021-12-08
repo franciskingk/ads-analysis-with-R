@@ -105,3 +105,4 @@ cov(daily_internet_usage,area_income)
 age <- ads$Age
 internet_usage_frequency <- ads$Daily.Internet.Usage
 cov(age,internet_usage_frequency)
+
