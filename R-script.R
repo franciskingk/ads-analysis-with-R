@@ -94,5 +94,14 @@ barplot(gender.frequency)
 
 #From the table and bar graph above, we can see that there are more female
 #viewers than male.
+##plotting to see Covarience 
 
+#Plotting to see the daily internet usage
+daily_internet_usage <- ads$Daily.Internet.Usage
+area_income <- ads$Area.Income
+cov(daily_internet_usage,area_income)
 
+#
+age <- ads$Age
+internet_usage_frequency <- ads$Daily.Internet.Usage
+cov(age,internet_usage_frequency)
