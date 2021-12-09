@@ -11,7 +11,21 @@
 # installing packages needed 
 library(dplyr)
 library(ggplot2)
-library("data.table")
+library(data.table)
+library(dplyr)
+library(ggplot2)
+library(data.table)
+library(mclust)
+library(caret)
+library(corrplot)
+library(clustvarsel)
+library(wskm)
+library(cluster)
+library(reshape2)
+library(DataExplorer)
+library(lattice)
+library(Hmisc) 
+library(caret)
 
 
 
@@ -38,7 +52,9 @@ income.mean <- mean(ads$Area.Income)
 
 income.mean
 # The average income of people targeted is 55,000.
-
+# plotting to see distribution in the data set
+# checking the distribution of the datset\
+plot(ads)
 #Checking for outliers in the income column
 boxplot(ads$Area.Income)
 
@@ -47,6 +63,10 @@ hist(ads$Area.Income)
 
 # The income range thet is most frequent is from 50,000 to 70,000.
 
+# plotting to see distribution of traffic type
+trafic <- ads$afficType
+method_table <- table(trafic)
+barplot(method_table,ylab= 'frequency')
 # Finding the average age of people in our dataset
 ads.age <- mean(ads$Age)
 
@@ -94,6 +114,28 @@ barplot(gender.frequency)
 
 #From the table and bar graph above, we can see that there are more female
 #viewers than male.
-##plotting to see Covarience 
 
+# Checking the most frequent time spent on site in the dataset
+hist(ads$Daily.Time.Spent.on.Site)
 
+# From the histogram we can see that the time spent on the particular site
+# ranges from 70 to 85 minutes per day
+
+# Creating scatter plot to check the correlation between age of user and
+# the time they spend on the site.
+
+age.user <- ads$Age
+time.spent <- ads$Daily.Time.Spent.on.Site
+
+plot(time.spent,age.user)
+
+# from the graph we can see that the older people spend less time on the site,
+# therefore more ads shou;d be shown to the people of the ages of 20 to 40
+# years since the group spents more time on the site.
+
+#plotting to see the distribution of gender
+gender <- ads$Male
+gender_count <- table(gender)
+pie(gender_count)
+
+# there are more women than men 
